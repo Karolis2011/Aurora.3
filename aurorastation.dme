@@ -2721,6 +2721,7 @@
 #include "code\modules\virus2\isolator.dm"
 #include "code\modules\virus2\items_devices.dm"
 #include "code\modules\vueui\external.dm"
+#include "code\modules\vueui\modules.dm"
 #include "code\modules\vueui\ui.dm"
 #include "code\modules\vueui\var_monitor.dm"
 #include "code\modules\web_interface\webint_procs.dm"
