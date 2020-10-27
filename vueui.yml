@@ -2,5 +2,3 @@ version: 1
 tests:
   dir: vueui/test
   
-
-
