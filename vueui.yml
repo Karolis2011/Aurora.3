@@ -1,7 +1,5 @@
 version: 1
-tests:
-  dir: vueui/test
-  
+
 template: '<!DOCTYPE html>
 <html>
 	<head>
@@ -36,5 +34,6 @@ variables:
     - 'theme-nano-light'
     - 'theme-basic'
     - 'theme-basic-dark dark-theme'
+
 
 
