@@ -1,5 +1,4 @@
 version: 1
-
 template: '<!DOCTYPE html>
 <html>
   <head>
@@ -34,3 +33,5 @@ variables:
     - 'theme-nano-light'
     - 'theme-basic'
     - 'theme-basic-dark dark-theme'
+
+
