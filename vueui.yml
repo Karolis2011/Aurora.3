@@ -1,0 +1,37 @@
+version: 1
+template: '<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="%?app.css%">
+  </head>
+  <body class="%theme%">
+    <div id="header">
+      <header-%header%></header-%header%>
+    </div>
+    <div id="app">
+      Javascript file has failed to load.
+    </div>
+    <noscript>
+      <div id="uiNoScript">
+        <h2>JAVASCRIPT REQUIRED</h2>
+        <p>Your Internet Explorer&apos;s Javascript is disabled (or broken).<br/>
+        Enable Javascript and then open this UI again.</p>
+      </div>
+    </noscript>
+  </body>
+  <script type="application/json" id="initialstate">
+    %data%
+  </script>
+  <script type="text/javascript" src="%?app.js%"></script>
+</html>'
+
+variables: 
+  theme:
+    - 'theme-nano dark-theme'
+    - 'theme-nano-light'
+    - 'theme-basic'
+    - 'theme-basic-dark dark-theme'
+
+
