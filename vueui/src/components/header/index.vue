@@ -2,7 +2,7 @@
   <div>
     <div class="uiTitleWrapper" draggable @mousedown.left="startDragging($event)" @mouseup.left="stopDragging($event)">
       <div class="uiRigthButtons">
-        <i v-if="debug == 1" @click="debug_enabled = !debug_enabled" @mousedown.left.prevent class="uiDbgBtn fas ic-bug"/>
+        <i v-if="debug == 1" @click="debug_enabled = !debug_enabled" @mousedown.left.prevent class="uiDbgBtn fas ic-bug" :class="{good: debug_enabled, bad: !debug_enabled}"/>
         <i @click="close" @mousedown.left.prevent class="uiCloseBtn fas ic-times"/>
       </div>
       <component :is="'header-' + header"/>
