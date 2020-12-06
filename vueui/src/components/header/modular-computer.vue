@@ -43,7 +43,7 @@ button, .button {
   padding: 4px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-bottom: -8px;
+  margin: 0rem -0.5rem -0.3rem;
   background-color: #202020;
   .valign {
     vertical-align: middle;
