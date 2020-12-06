@@ -18,42 +18,11 @@ body {
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: hidden;
     display: flex;
     flex-flow: column;
     height: 100vh;
 }
-
-.uiTitleWrapper {
-    cursor: default;
-    float: none;
-    clear: both;
-    user-select: none;
-    margin: 0px 0px 8px 0px;
-    padding: 0.3rem 0.5rem;
-    font-size: 1.2em;
-  
-    .uiTitleText {
-      font-size: 1.2em;
-      display: inline;
-      margin: 0px 0.5rem;
-    }
-
-    .uiRigthButtons {
-      float: right;
-
-      .uiDbgBtn {
-        cursor: pointer;
-      }
-
-      .uiCloseBtn {
-        font-size: 1.3em;
-        cursor: pointer;
-      }
-    }
-  
-    
-  }
 
 .mainContent {
     overflow-y: scroll;
@@ -62,45 +31,44 @@ body {
 }
 
 .uiTitleWrapper {
-    margin: -8px -8px 10px;
     position: relative;
     float: none;
     clear: both;
     user-select: none;
     -ms-user-select: none;
     cursor: default;
+    padding: 0.3rem 0.5rem;
+
     & > .titleBar {
         height: 32px;
         @include vertical-align(middle, 24px);
-        & > * {
-            display: inline-block;
-            margin-left: 8px;
-            line-height: 32px;
-        }
+    }
 
-        & > .uiTitleText {
-            font-size: 16px;
-        }
+    .uiTitleText {
+        font-size: 1.2em;
+        display: inline;
+        margin: 0px 0.5rem;
+    }
 
-        & > .uiDebugIcon {
+    .uiRigthButtons { 
+        float: right;
+
+        .uiDbgBtn {
             cursor: pointer;
             transition: color 250ms;
-            &.uiNoDebug {
-                display: none;
-            }
             &:hover {
                 color: #507aac;
                 transition: color 0ms;
             }
         }
 
-        & > .uiTitleClose {
-            display: block;
-            float: right;
+        .uiCloseBtn {
+            display: inline-block;
             width: 45px;
             font-size: 20px;
             text-align: center;
             transition: color 250ms, background-color 250ms;
+            margin: -0.3rem -0.5rem 0 0;
             &:hover {
                 color: rgba(255, 255, 255, 1.0);
                 background-color: #cc0000;
