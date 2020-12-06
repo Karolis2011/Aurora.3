@@ -174,8 +174,8 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
-	sdata["header"] = header
 	sdata["roundstart_hour"] = roundstart_hour
+	sdata["header"] = header
 #ifdef UIDEBUG
 	sdata["debug"] = 2
 #else
