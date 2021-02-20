@@ -111,6 +111,7 @@
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 	new /obj/item/device/radio/headset/heads/cmo/alt(src)
+	new /obj/item/device/megaphone/med(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/reagent_containers/hypospray/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
@@ -118,6 +119,7 @@
 	new /obj/item/storage/box/inhalers(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/storage/box/fancy/keypouch/med(src)
+	new /obj/item/device/advanced_healthanalyzer(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"

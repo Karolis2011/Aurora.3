@@ -31,7 +31,7 @@
 		inv_box.hud = src
 
 		var/list/slot_data =  hud_data.gear[gear_slot]
-		inv_box.name =        gear_slot
+		inv_box.name =        slot_data["name"]
 		inv_box.screen_loc =  slot_data["loc"]
 		inv_box.slot_id =     slot_data["slot"]
 		inv_box.icon_state =  slot_data["state"]
@@ -158,7 +158,7 @@
 
 		inv_box = new /obj/screen/inventory/hand()
 		inv_box.hud = src
-		inv_box.name = BP_R_HAND
+		inv_box.name = "right hand"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "r_hand_inactive"
 		if(mymob && !mymob.hand)	//This being 0 or null means the right hand is in use
@@ -174,7 +174,7 @@
 
 		inv_box = new /obj/screen/inventory/hand()
 		inv_box.hud = src
-		inv_box.name = BP_L_HAND
+		inv_box.name = "left hand"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "l_hand_inactive"
 		if(mymob && mymob.hand)	//This being 1 means the left hand is in use
@@ -270,6 +270,13 @@
 		mymob.fire.screen_loc = ui_fire
 		hud_elements |= mymob.fire
 
+		mymob.paralysis_indicator = new /obj/screen/paralysis()
+		mymob.paralysis_indicator.icon = 'icons/mob/status_indicators.dmi'
+		mymob.paralysis_indicator.icon_state = "paralysis0"
+		mymob.paralysis_indicator.name = "paralysis"
+		mymob.paralysis_indicator.screen_loc = ui_paralysis
+		hud_elements |= mymob.paralysis_indicator
+
 		mymob.healths = new /obj/screen()
 		mymob.healths.icon = ui_style
 		mymob.healths.icon_state = "health0"
@@ -362,6 +369,18 @@
 	mymob.radio_use_icon.color = ui_color
 	mymob.radio_use_icon.alpha = ui_alpha
 
+	mymob.toggle_burst_fire_icon = new /obj/screen/gun/burstfire(null)
+	mymob.toggle_burst_fire_icon.icon = ui_style
+	mymob.toggle_burst_fire_icon.color = ui_color
+	mymob.toggle_burst_fire_icon.alpha = ui_alpha
+	hud_elements |= mymob.toggle_burst_fire_icon
+
+	mymob.unique_action_icon = new /obj/screen/gun/uniqueaction(null)
+	mymob.unique_action_icon.icon = ui_style
+	mymob.unique_action_icon.color = ui_color
+	mymob.unique_action_icon.alpha = ui_alpha
+	hud_elements |= mymob.unique_action_icon
+
 	mymob.client.screen = null
 
 	mymob.client.screen += hud_elements
@@ -391,7 +410,7 @@
 	all_underwear.Cut()
 	regenerate_icons()
 
-// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating 
+// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating
 // a bunch of fairly blobby logic for every click override on these objects.
 
 /obj/screen/food/Click(var/location, var/control, var/params)
@@ -434,7 +453,7 @@
 			if("thirst3")
 				to_chat(usr, SPAN_WARNING("You are quite thirsty."))
 			if("thirst4")
-				to_chat(usr, SPAN_DANGER("Your are entirely dehydrated!"))
+				to_chat(usr, SPAN_DANGER("You are entirely dehydrated!"))
 
 /obj/screen/bodytemp/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.bodytemp == src)
@@ -485,3 +504,10 @@
 			to_chat(usr, SPAN_NOTICE("You are breathing easy."))
 		else
 			to_chat(usr, SPAN_DANGER("You cannot breathe!"))
+
+/obj/screen/paralysis/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.paralysis_indicator == src)
+		if(usr.paralysis)
+			to_chat(usr, SPAN_WARNING("You are completely paralyzed and cannot move!"))
+		else
+			to_chat(usr, SPAN_NOTICE("You are walking around completely fine."))

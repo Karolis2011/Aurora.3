@@ -14,6 +14,7 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	name_language = LANGUAGE_VAURCA
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -154,3 +155,6 @@
 
 /datum/species/bug/has_psi_potential()
 	return FALSE
+	
+/datum/species/bug/is_naturally_insulated()
+	return TRUE

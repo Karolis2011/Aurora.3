@@ -221,7 +221,7 @@
 /obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
 	if(user.stat || !user.canmove || !istype(target))
 		return
-	if(target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1)
+	if(target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1)
 		return
 
 	//animals cannot put mobs other than themselves into disposal
@@ -267,6 +267,7 @@
 		target.client.perspective = EYE_PERSPECTIVE
 		target.client.eye = src
 
+	target.simple_move_animation(src)
 	target.forceMove(src)
 
 	for (var/mob/C in viewers(src))

@@ -48,7 +48,7 @@
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/item/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0
@@ -136,7 +136,7 @@
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 
-/obj/item/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
+/obj/item/gun/energy/rifle/pulse/destroyer/toggle_firing_mode(mob/living/user)
 	to_chat(user, "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>")
 
 /obj/item/gun/energy/rifle/laser/tachyon
